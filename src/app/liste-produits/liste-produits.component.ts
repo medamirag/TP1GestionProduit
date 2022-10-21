@@ -7,7 +7,7 @@ import { Produit } from '../modele/produit';
   styleUrls: ['./liste-produits.component.scss']
 })
 export class ListeProduitsComponent implements OnInit {
-
+//https://github.com/medamirag/TP1GestionProduit
   products: Produit[] = [
     { id: 1, image: "assets/images/image1.jpg", nom: "apple", prix: 0.158, quantite: 10.359 },
     { id: 1, image: "assets/images/image1.jpg", nom: "apple", prix: 0.158, quantite: 10.359 },
@@ -23,9 +23,10 @@ export class ListeProduitsComponent implements OnInit {
 
 chercher(){
    this.products = this.productsOrigine
-console.log(this.products);
+// console.log(this.products);
 
-  this.products=this.products.filter(produit=>produit.nom.toUpperCase().includes(this.nomSaisie.toUpperCase()))
+  this.products=this.products.filter(produit=>
+    produit.nom.toUpperCase().includes(this.nomSaisie.toUpperCase()))
   
 }
 afficher() {
