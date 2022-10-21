@@ -1,0 +1,91 @@
+
+<input  type="text" [(ngModel)]="nomSaisie" >
+<button  (click)="chercher()"  > Filtrer</button>
+<div *ngIf="(products.length>0)">
+<table >
+    <thead>
+      <tr><th >#</th>
+         <th >Id</th>
+         <th >Nom</th>
+        <th > 
+          <button (click)="afficher()" 
+          class="btn btn-danger">images</button> 
+        </th>
+        <th >Prix</th><th >Quantité</th></tr>
+    </thead>
+    <tbody>
+//
+
+      <tr *ngFor="let product of products;let i=index">
+        <th >{{i+1}}</th>
+        <td>{{product.id}}</td>
+        <td>{{product.nom|uppercase}}</td>
+        <td ><img *ngIf="isVisible" 
+          style="height: 50px;width:50px"
+           [src]="product.image" /></td>
+        <td >{{product.prix|number:'1.2-2'}}</td>
+        <!-- <td [ngStyle]="{'background-color':
+           product.quantite===0?  'red':''}" >
+           {{product.quantite}}</td> -->
+        <td  [ngClass]="product.quantite===0?
+        'colorProductNull'
+        :
+        'colorProductPositive'" >
+        {{product.quantite}}</td>
+      </tr>
+    </tbody></table>
+</div>
+  <div *ngIf="!(products.length>0)">
+aucun produit
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div *ngIf="(products.length>0)">
+  <table class="table table-dark">
+      <thead>
+        <tr>
+          <th >#</th>
+          <th >Id</th>
+          <th >Nom</th>
+          <th ><button class="btn btn-danger" (click)="changeVisibility()">images</button></th>
+          <th >Prix</th>
+          <th >Quantité</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <th ></th>
+          <td>{{product.id}}</td>
+          <td>{{product.nom|uppercase}}</td>
+          <td ><img *ngIf="showImage" style="height: 80px;width:80px" [src]="product.image" /></td>
+          <td [ngClass]="product.prix>100?'expensive':''">{{product.prix|number:'1.2-2'}}</td>
+          <td [ngStyle]="{'color':product.quantite===0?'red':''}" >{{product.quantite}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <div *ngIf="!(products.length>0)">
+  Empty
+  </div>
+  
+  <input (input)="chercher()" type="text" [(ngModel)]="mot"> -->
