@@ -9,7 +9,7 @@ import { Produit } from '../modele/produit';
 export class ListeProduitsComponent implements OnInit {
 //https://github.com/medamirag/TP1GestionProduit
   products: Produit[] = [
-    { id: 1, image: "assets/images/image1.jpg", nom: "apple", prix: 0.158, quantite: 10.359 },
+    { id: 0, image: "assets/images/image1.jpg", nom: "apple", prix: 0.158, quantite: 10.359 },
     { id: 1, image: "assets/images/image1.jpg", nom: "apple", prix: 0.158, quantite: 10.359 },
     { id: 2, image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-pink-select-2021?wid=940&hei=1112&fmt=png-alpha&.v=1645572315935", nom: "iphone", prix: 1, quantite: 20 },
     { id: 3, image: "", nom: "C", prix: 2, quantite: 0 },
