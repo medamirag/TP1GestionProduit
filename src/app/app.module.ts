@@ -8,6 +8,7 @@ import { ListeProduitsComponent } from './liste-produits/liste-produits.componen
 import { RouterModule } from '@angular/router';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { AcceuilComponent } from './acceuil/acceuil.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     ListeProduitsComponent,
     DetailProduitComponent,
     NotfoundComponent,
+    AcceuilComponent,
   ],
   imports: [
     BrowserModule,
