@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Produit } from '../modele/produit';
+import { ProductsService } from '../service/products.service';
 
 @Component({
   selector: 'app-liste-produits',
@@ -8,16 +9,17 @@ import { Produit } from '../modele/produit';
 })
 export class ListeProduitsComponent implements OnInit {
 //https://github.com/medamirag/TP1GestionProduit
-  products: Produit[] = [
-    { id: 0, image: "assets/images/image1.jpg", nom: "apple", prix: 0.158, quantite: 10.359 },
-    { id: 1, image: "assets/images/image1.jpg", nom: "apple", prix: 0.158, quantite: 10.359 },
-    { id: 2, image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-pink-select-2021?wid=940&hei=1112&fmt=png-alpha&.v=1645572315935", nom: "iphone", prix: 1, quantite: 20 },
-    { id: 3, image: "", nom: "C", prix: 2, quantite: 0 },
-    { id: 4, image: "./assets/images/image1.jpg", nom: "D", prix: 300.2, quantite: 40.856 },
-  ]
+  products: Produit[] =[]
   productsOrigine=this.products
   isVisible: boolean = true;
-  nomSaisie:string=""
+  nomSaisie:string="";
+  constructor(private serviceProduit:ProductsService) { }
+  ngOnInit(): void {
+    this.serviceProduit.getAll().subscribe(data=>{
+      this.products=data;
+    })
+  }
+
 // test:string="";
 // test2:String="" => Interface : à ne pas utiliser;
 
@@ -40,8 +42,5 @@ this.isVisible=!this.isVisible
   }
 
 
-  constructor() { }
-  ngOnInit(): void {
-  }
-
+  
 }
